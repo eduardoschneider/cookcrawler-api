@@ -22,8 +22,8 @@ class UsersAdapter {
             $users = new Users();            
          
 
-            //IDUSERS
-            $users->setIdusers($result['idusers']);
+            //ID
+            $users->setId($result['id']);
 
             //NAME
             $users->setName($result['name']);
@@ -36,6 +36,12 @@ class UsersAdapter {
 
             //PASSWORD
             $users->setPassword($result['password']);
+
+            //POINTS
+            $users->setPoints($result['points']);
+
+            //MONEY_SAVED
+            $users->setMoney_saved($result['money_saved']);
             $listUsersResult[] = $users;
         }
 

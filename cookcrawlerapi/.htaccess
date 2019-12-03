@@ -1,7 +1,7 @@
 Options -Indexes
 
 RewriteEngine On
-RewriteBase /cookcrawler-api/
+RewriteBase /cookcrawlerapi/
 
 RewriteRule ^api/(\w+)/(\w+)/?$ engine/Router.php?class=$1&method=$2&param=api [NC,L,QSA]
 

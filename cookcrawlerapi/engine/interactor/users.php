@@ -15,14 +15,12 @@ function findAll()
 	$pageSize = 0;
 	$list = Array(); 
 
- 
-    if(isset($_REQUEST['idusers'])) {
- 
-		 $where = new FilterWhere();       
-		 $where->setCollum('users.idusers');         
-		 $where->setValue($_REQUEST['idusers']);
-		 $list[]=$where;
 
+    if (isset($_REQUEST['id'])) {
+		$where = new FilterWhere();
+		$where->setCollum('users.id');		
+		$where->setValue($_REQUEST['id']);
+        $list[]=$where;
     }
 
     if (isset($_REQUEST['name'])) {
@@ -60,6 +58,24 @@ function findAll()
 		$where->setValue('%'.$_REQUEST['password'].'%');
 		$list[]=$where;
         
+    } 
+    if(isset($_REQUEST['points'])) {
+ 
+		 $where = new FilterWhere();       
+		 $where->setCollum('users.points');         
+		 $where->setValue($_REQUEST['points']);
+		 $list[]=$where;
+
+    }
+
+    if (isset($_REQUEST['money_saved'])) {
+
+		$where = new FilterWhere();       
+		$where->setCollum('users.money_saved');
+        $where->setCondition('like');
+		$where->setValue('%'.$_REQUEST['money_saved'].'%');
+		$list[]=$where;
+        
     }
 
  	if (isset($_REQUEST['page'])) {
@@ -88,11 +104,11 @@ function get()
 	$list = Array();
 
 
-    if (isset($_GET['idusers'])) {
-         $where = new FilterWhere();       
-		 $where->setCollum('users.idusers');         
-		 $where->setValue($_GET['idusers']);
-		 $list[]=$where;
+    if (isset($_GET['id'])) {        
+		$where = new FilterWhere();
+		$where->setCollum('users.id');
+		$where->setValue($_GET['id']);
+        $list[]=$where;
     }
 
     if (isset($_GET['name'])) {
@@ -123,6 +139,20 @@ function get()
 		$where->setValue('%'.$_GET['password'].'%');
 		$list[]=$where;
     }
+    if (isset($_GET['points'])) {
+         $where = new FilterWhere();       
+		 $where->setCollum('users.points');         
+		 $where->setValue($_GET['points']);
+		 $list[]=$where;
+    }
+
+    if (isset($_GET['money_saved'])) {
+       $where = new FilterWhere();       
+		$where->setCollum('users.money_saved');
+        $where->setCondition('like');
+		$where->setValue('%'.$_GET['money_saved'].'%');
+		$list[]=$where;
+    }
         		
  	if (isset($_REQUEST['page'])) {
     	$page = $_REQUEST['page'];
@@ -146,8 +176,8 @@ function delete()
 {
     $users = new dao\Users();
 
-    if (isset($_GET['idusers'])) {
-        $users->setIdusers($_GET['idusers']);
+    if (isset($_GET['id'])) {        
+        $users->setId($_GET['id']);
     }
 
     if (isset($_GET['name'])) {
@@ -162,6 +192,13 @@ function delete()
     }
     if (isset($_GET['password'])) {
         $users->setPassword($_GET['password']);
+    }
+    if (isset($_GET['points'])) {
+        $users->setPoints($_GET['points']);
+    }
+
+    if (isset($_GET['money_saved'])) {
+        $users->setMoney_saved($_GET['money_saved']);
     }
     $connection = new connection\Connection();
     $usersAdapter = new adapter\UsersAdapter($connection);
@@ -194,8 +231,8 @@ function put()
 		http_response_code(400);
 		return; 
 	}
-    if (isset($post_vars['idusers'])) {
-        $users->setIdusers($post_vars['idusers']);
+    if (isset($post_vars['id'])) {        
+        $users->setId($post_vars['id']);
     }
 
     if (isset($post_vars['name'])) {
@@ -210,6 +247,13 @@ function put()
     }
     if (isset($post_vars['password'])) {
         $users->setPassword($post_vars['password']);
+    }
+    if (isset($post_vars['points'])) {
+        $users->setPoints($post_vars['points']);
+    }
+
+    if (isset($post_vars['money_saved'])) {
+        $users->setMoney_saved($post_vars['money_saved']);
     }
     $connection = new connection\Connection();
     $usersAdapter = new adapter\UsersAdapter($connection);
@@ -226,8 +270,8 @@ function insert()
 {
     $users = new dao\Users();
 
-    if (isset($_REQUEST['idusers'])) {
-        $users->setIdusers($_REQUEST['idusers']);
+    if (isset($_REQUEST['id'])) {        
+        $users->setId($_REQUEST['id']);
     }
 
     if (isset($_REQUEST['name'])) {
@@ -242,6 +286,13 @@ function insert()
     }
     if (isset($_REQUEST['password'])) {
         $users->setPassword($_REQUEST['password']);
+    }
+    if (isset($_REQUEST['points'])) {
+        $users->setPoints($_REQUEST['points']);
+    }
+
+    if (isset($_REQUEST['money_saved'])) {
+        $users->setMoney_saved($_REQUEST['money_saved']);
     }
     $connection = new connection\Connection();
     $usersAdapter = new adapter\UsersAdapter($connection);

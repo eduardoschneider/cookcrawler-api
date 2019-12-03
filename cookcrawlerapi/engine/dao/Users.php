@@ -3,34 +3,38 @@
    		
     class Users implements \JsonSerializable {
 
-		private $idusers;
+		private $id;
 		private $name;
 		private $age;
 		private $email;
 		private $password;
+		private $points;
+		private $money_saved;
 
 		public function getKeys() {
 			return [
-				'idusers' =>$this->getIdusers()
+				'id' =>$this->getId()
 			];
 		}
 
 		public function jsonSerialize() {
 			return [
-				'idusers' =>$this->getIdusers(),
+				'id' =>$this->getId(),
 				'name' =>$this->getName(),
 				'age' =>$this->getAge(),
 				'email' =>$this->getEmail(),
-				'password' =>$this->getPassword()
+				'password' =>$this->getPassword(),
+				'points' =>$this->getPoints(),
+				'money_saved' =>$this->getMoney_saved()
 			];
 		}
 			
-		//IDUSERS
-		function getIdusers() {
-			return $this->idusers;
+		//ID
+		function getId() {
+			return $this->id;
 		}
-		function setIdusers($idusers) {
-			return $this->idusers = $idusers;
+		function setId($id) {
+			return $this->id = $id;
 		}
 		
 		//NAME
@@ -63,6 +67,22 @@
 		}
 		function setPassword($password) {
 			return $this->password = $password;
+		}
+		
+		//POINTS
+		function getPoints() {
+			return $this->points;
+		}
+		function setPoints($points) {
+			return $this->points = $points;
+		}
+		
+		//MONEY_SAVED
+		function getMoney_saved() {
+			return $this->money_saved;
+		}
+		function setMoney_saved($money_saved) {
+			return $this->money_saved = $money_saved;
 		}
 		
 	}

@@ -33,6 +33,12 @@ class RecipesAdapter {
 
             //CALORIFIC_VALUE_KCAL
             $recipes->setCalorific_value_kcal($result['calorific_value_kcal']);
+
+            //MONEY_SAVED
+            $recipes->setMoney_saved($result['money_saved']);
+
+            //POINTS
+            $recipes->setPoints($result['points']);
             $listRecipesResult[] = $recipes;
         }
 

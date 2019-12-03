@@ -1,16 +1,16 @@
 <?php
 //--------------------------------DEFINES--------------------------------------
 // NOME DA PASTA DO PROJETO
-define ( "PROJECT",    "cookcrawler-api" );
+define ( "PROJECT",    "cookcrawlerapi" );
 
 // DADOS DE BANCO (OFFICIAL)
-define ( "BANCO"  , "mydb" );
+define ( "BANCO"  , "cookcrawler" );
 define ( "IP"     , "localhost"   );
 define ( "USUARIO", "root"        );
 define ( "SENHA"  , ""            );
 
 // DADOS DE BANCO (TESTE)
-define ( "BANCO_T"  , "mydb" );
+define ( "BANCO_T"  , "cookcrawler" );
 define ( "IP_T"     , "localhost"   );
 define ( "USUARIO_T", "root"        );
 define ( "SENHA_T"  , ""            );
@@ -1084,7 +1084,8 @@ class Hosts{
 }
 
 function getConnection() {
-    $str = "<?php
+    $str = 
+"<?php
 namespace engine\connection;
         
 use engine;
@@ -1476,6 +1477,21 @@ class Connection{
         return \$array;
     }
         
+    function execSelect(\$sql){
+        \$this->beginConnection();       
+        \$sth = \$this->pdo_->prepare(\$sql);
+        \$sth->execute();                
+        \$this->commitConection();
+
+        \$array = Array();
+        
+        while (\$foren = \$sth->fetch(\PDO::FETCH_ASSOC)) {
+            \$array[] = \$foren;
+        }
+        
+        return \$array;
+    }
+
     // -------------------------------------------UTILS-----------------------------------------------
         
     /**

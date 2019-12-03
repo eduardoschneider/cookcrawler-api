@@ -390,6 +390,21 @@ class Connection{
         return $array;
     }
         
+    function execSelect($sql){
+        $this->beginConnection();       
+        $sth = $this->pdo_->prepare($sql);
+        $sth->execute();                
+        $this->commitConection();
+
+        $array = Array();
+        
+        while ($foren = $sth->fetch(\PDO::FETCH_ASSOC)) {
+            $array[] = $foren;
+        }
+        
+        return $array;
+    }
+
     // -------------------------------------------UTILS-----------------------------------------------
         
     /**

@@ -38,17 +38,18 @@
 		$permission = setRouter("ingredients","POST"  ,"insert" ,$permission);
 		
 		
-		//INGREDIENTS_RECIPES
-		$permission = setRouter("ingredients_recipes","POST"  ,"findAll",$permission);
-		$permission = setRouter("ingredients_recipes","GET"   ,"get"    ,$permission);
-		$permission = setRouter("ingredients_recipes","DELETE","delete" ,$permission);
-		$permission = setRouter("ingredients_recipes","PUT"   ,"put"    ,$permission);
-		$permission = setRouter("ingredients_recipes","POST"  ,"insert" ,$permission);
+		//INGREDIENTS_HAS_RECIPES
+		$permission = setRouter("ingredients_has_recipes","POST"  ,"findAll",$permission);
+		$permission = setRouter("ingredients_has_recipes","GET"   ,"get"    ,$permission);
+		$permission = setRouter("ingredients_has_recipes","DELETE","delete" ,$permission);
+		$permission = setRouter("ingredients_has_recipes","PUT"   ,"put"    ,$permission);
+		$permission = setRouter("ingredients_has_recipes","POST"  ,"insert" ,$permission);
 		
 		
 		//RECIPES
 		$permission = setRouter("recipes","POST"  ,"findAll",$permission);
 		$permission = setRouter("recipes","GET"   ,"get"    ,$permission);
+		$permission = setRouter("recipes","GET"   ,"getTeste"    ,$permission);
 		$permission = setRouter("recipes","DELETE","delete" ,$permission);
 		$permission = setRouter("recipes","PUT"   ,"put"    ,$permission);
 		$permission = setRouter("recipes","POST"  ,"insert" ,$permission);
@@ -62,12 +63,12 @@
 		$permission = setRouter("users","POST"  ,"insert" ,$permission);
 		
 		
-		//USERS_RECIPES
-		$permission = setRouter("users_recipes","POST"  ,"findAll",$permission);
-		$permission = setRouter("users_recipes","GET"   ,"get"    ,$permission);
-		$permission = setRouter("users_recipes","DELETE","delete" ,$permission);
-		$permission = setRouter("users_recipes","PUT"   ,"put"    ,$permission);
-		$permission = setRouter("users_recipes","POST"  ,"insert" ,$permission);
+		//USERS_HAS_RECIPES
+		$permission = setRouter("users_has_recipes","POST"  ,"findAll",$permission);
+		$permission = setRouter("users_has_recipes","GET"   ,"get"    ,$permission);
+		$permission = setRouter("users_has_recipes","DELETE","delete" ,$permission);
+		$permission = setRouter("users_has_recipes","PUT"   ,"put"    ,$permission);
+		$permission = setRouter("users_has_recipes","POST"  ,"insert" ,$permission);
 		
 	
 	run($permission);

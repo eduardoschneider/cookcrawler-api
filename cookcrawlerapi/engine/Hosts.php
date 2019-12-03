@@ -14,12 +14,12 @@ class Hosts{
     
     function __construct() {
         if($this->oficial){
-            $this->banco   = "mydb";
+            $this->banco   = "cookcrawler";
             $this->ip      = "localhost";
             $this->usuario = "root";
             $this->senha   = "";
         }else{
-            $this->banco   = "mydb";
+            $this->banco   = "cookcrawler";
             $this->ip      = "localhost";
             $this->usuario = "root";
             $this->senha   = "";
